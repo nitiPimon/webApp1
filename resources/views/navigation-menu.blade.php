@@ -102,7 +102,8 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('restaurant') }}" :active="request()->routeIs('restaurant')">
                 {{ __('Restaurant') }}
-            </x-jet-responsive-nav-link>            
+            </x-jet-responsive-nav-link>  
+            
         </div>
 
         <!-- Responsive Settings Options -->
