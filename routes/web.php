@@ -14,15 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/user/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::middleware(['auth:sanctum', 'verified'])->get('/search', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/user/search', function () {
     return view('search');
 })->name('search');
-Route::middleware(['auth:sanctum', 'verified'])->get('/restaurant', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/user/restaurant', function () {
     return view('restaurant');
 })->name('restaurant');
+
+Route::middleware(['auth:sanctum', 'verified','authadmin'])->get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
+
