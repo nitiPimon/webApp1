@@ -51,7 +51,7 @@
          <h5 style="font-family:verdana;" >เว็บสำหรับการรีวิวอาหารเเละร้าน เพื่อทำให้พึงพอใจในการเลือกร้านค้า
           เเละทำให้มีความสุชในการรับประทานอาหาร</h5>
     </div>
-    <form action="/searchRes" type="get" >
+    <form action="searchRes" type="get" >
       <div class="box" >
         <input  name="query" type="text" id="myInput" placeholder="Search.." title="Type in a name">
         <button class="button button1" type="submit">Seacrh</button>

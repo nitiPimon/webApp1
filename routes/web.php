@@ -15,53 +15,23 @@ use App\Http\Controllers\RestaurantController;
 |
 */
 
-<<<<<<< HEAD
-// Route::get('/', function () {
-//     return view('auth/login');
-// });
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
-// Route::middleware(['auth:sanctum', 'verified'])->get('/search', function () {
-//     return view('search');
-// })->name('search');
-// Route::middleware(['auth:sanctum', 'verified'])->get('/restaurant', function () {
-//     return view('restaurant');
-// })->name('restaurant');
-
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-    Route::redirect('/', 'search');
+    Route::redirect('/', 'user/search');
 
-    // Search
-    Route::get('/search', [SearchController::class,'index'])->name('search');
+    // Search.
+    Route::get('user/search', [SearchController::class,'index'])->name('search');
 
-    // Dashboard
-    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+    // Dashboard.
+    Route::get('user/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
-    // Restaurant
-    Route::get('/restaurant', [RestaurantController::class,'index'])->name('restaurant');
+    // Restaurant.
+    Route::get('user/restaurant', [RestaurantController::class,'index'])->name('restaurant');
 
     //Search a restaurant.
-    Route::get('/searchRes',[SearchController::class,'search'])->name('searchRestaurant');  
-});
-=======
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('user/searchRes',[SearchController::class,'search'])->name('searchRestaurant');  
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/user/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-Route::middleware(['auth:sanctum', 'verified'])->get('/user/search', function () {
-    return view('search');
-})->name('search');
-Route::middleware(['auth:sanctum', 'verified'])->get('/user/restaurant', function () {
-    return view('restaurant');
-})->name('restaurant');
-
+});
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+    return view('admin/dashboard');
+})->name('adminDashboard');
 
->>>>>>> d8019c0ce5b08e4d8c058a82a3700c297f362a0c
