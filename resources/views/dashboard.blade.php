@@ -8,11 +8,11 @@
         <div class="w-full px-0 lg:px-4">
           <div class="flex flex-wrap items-center justify-center py-4 pt-0">                 
             @foreach($restaurants as $restaurant)
-              <div class="w-full p-4 md:w-1/2 lg:w-1/4 plan-card">
+              <div class="w-full h-80 p-4 md:w-1/2 lg:w-1/4 plan-card">
                 <label class="flex flex-col rounded-lg shadow-lg group relative cursor-pointer hover:shadow-2xl">
-                  <div class="w-full rounded-t-lg">
+                  <div class="w-full h-40 rounded-t-lg">
                   
-                    <img src="/image/1.jpg" alt="panda">
+                    <img class="object-cover w-full h-full" src= "{{$restaurant->image}}" alt="panda">
 
                   </div>
                   <div class="flex flex-col items-center justify-center w-full h-full py-6 rounded-b-lg bg-blue-500">

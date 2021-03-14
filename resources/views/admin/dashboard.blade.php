@@ -1,9 +1,9 @@
 <x-admin-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+  <x-slot name="header">
+       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+          {{ __('Dashboard') }}
+      </h2>
+  </x-slot>
 
   <div class="container flex flex-wrap pt-4 pb-10 m-auto mt-6 md:mt-15 lg:px-12 xl:px-16">
     <div class="w-full px-0 lg:px-4">
@@ -82,9 +82,7 @@
               </button>
             </div>
           </label>
-        </div>
-
-             
+        </div>             
       </div>
     </div>
   </div>
