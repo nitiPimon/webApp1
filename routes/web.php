@@ -27,6 +27,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     // Restaurant.
     Route::get('user/restaurant', [RestaurantController::class,'index'])->name('restaurant');
 
+    // Restaurant.
+    Route::get('user/restaurant/{id}', [RestaurantController::class,'show']);
+
     //Search a restaurant.
     Route::get('user/searchRes',[SearchController::class,'search'])->name('searchRestaurant');  
 

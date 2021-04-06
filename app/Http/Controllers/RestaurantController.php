@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use App\Models\Review;
 
 class RestaurantController extends Controller
 {
@@ -14,6 +15,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
+        
         return view('restaurant');
     }
 
@@ -46,7 +48,9 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+        $review = Review::all()->where('restaurantID', $id)->first();
+        return view('restaurant',compact(['restaurant','review']));
     }
 
     /**
