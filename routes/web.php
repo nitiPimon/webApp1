@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\AdminDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +35,42 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('user/searchRes',[SearchController::class,'search'])->name('searchRestaurant');  
 
 });
+/*
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->get('/admin/dashboard', function () {
     return view('admin/dashboard');
 })->name('adminDashboard');
 
+*/
+
+//Route::resource('admin/dashboard', AdminDashboardController::class);
+
+Route::group(['middleware' => ['auth:sanctum', 'verified', 'authadmin']], function () {
+    
+    Route::redirect('/', 'admin/dashboard');
+    // Dashboard.
+    Route::get('admin/dashboard', [AdminDashboardController::class,'index'])->name('adminDashboard');
+    
+    // Create 
+    Route::get('admin/create', [AdminDashboardController::class,'create'])->name('adminCreate');
+
+    // Update
+    Route::get('admin/edit', [AdminDashboardController::class, 'edit'])->name('adminEdit');
+
+
+    // Store
+    Route::resource('store', AdminDashboardController::class);
+
+    // store update
+    //Route::resource('adminUpdate', AdminDashboardController::class);
+
+   
+
+
+    
+
+    
+
+   
+
+
+});

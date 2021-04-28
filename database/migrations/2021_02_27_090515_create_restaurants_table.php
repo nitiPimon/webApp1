@@ -18,8 +18,9 @@ class CreateRestaurantsTable extends Migration
 
             $table->bigInteger('userID')->unsigned();
             $table->foreign('userID')->references('id')->on('users');
-
             $table->string('name');
+            $table->string('body');
+            $table->string('location');
             $table->string('image');
             $table->integer('rating');            
             $table->timestamps();
