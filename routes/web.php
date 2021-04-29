@@ -56,7 +56,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'authadmin']], functi
     // Update
     Route::get('admin/edit', [AdminDashboardController::class, 'edit'])->name('adminEdit');
 
-
+    //Delete
+    Route::get('delete/{id}',[AdminDashboardController::class, 'destroy'])->name('adminDelete');
+    
     // Store
     Route::resource('store', AdminDashboardController::class);
 

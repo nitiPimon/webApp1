@@ -75,6 +75,6 @@ class AdminDashboardController extends Controller
     {     //
         Restaurant::find($id)->delete();
         return redirect()->route('adminDashboard');
-        session()->flash('message', 'Resturant Deleted Successfully.');
+        session()->flash('success', 'Resturant Deleted Successfully.');
     }
 }
