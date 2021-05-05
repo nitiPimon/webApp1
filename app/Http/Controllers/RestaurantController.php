@@ -49,7 +49,7 @@ class RestaurantController extends Controller
     public function show($id)
     {
         $restaurant = Restaurant::find($id);
-        $review = Review::all()->where('restaurantID', $id)->first();
+        $review = Review::where('restaurantID', $id)->get();
         return view('restaurant',compact(['restaurant','review']));
     }
 

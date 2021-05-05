@@ -1,0 +1,10 @@
+{
+    "source": {
+        "directories": [
+            "app"
+        ]
+    },
+    "mutators": {
+        "@default": true
+    }
+}

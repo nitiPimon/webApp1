@@ -25,7 +25,9 @@
             @endfor
             </span>
             </div>
-            <p class="leading-relaxed">{{$review->reviews}}</p>
+            @foreach($review as $value)
+                <p class="leading-relaxed"> {{$value->reviews}} </p><br>
+            @endforeach
             <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
             </div>
             <div class="flex">
