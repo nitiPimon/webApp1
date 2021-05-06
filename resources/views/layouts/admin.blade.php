@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -17,6 +17,15 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <style>
+        .modal {
+         transition: opacity 0.25s ease;
+        }
+         body.modal-active {
+        overflow-x: hidden;
+        overflow-y: visible !important;
+    }
+  </style>
     </head>
     <body class="font-sans antialiased">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
@@ -39,6 +48,16 @@
                             
                             <x-jet-nav-link href="{{ route('adminDashboard') }}" :active="request()->routeIs('adminDashboard')">
                                 {{ __('Dashboard') }}
+                            </x-jet-nav-link>
+
+
+                            <x-jet-nav-link href="{{ route('adminDashboard') }}" :active="request()->routeIs('adminDashboard')">
+                                {{ __('Review') }}
+                            </x-jet-nav-link>
+
+
+                            <x-jet-nav-link href="{{ route('adminManage') }}" :active="request()->routeIs('adminManage')">
+                                {{ __('Manage User') }}
                             </x-jet-nav-link>
                         </div>
                     </div>
@@ -71,7 +90,7 @@
                                         {{ __('Manage Account') }}
                                     </div>
 
-                                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                    <x-jet-dropdown-link href="{{ route('profile.admin-show') }}">
                                         {{ __('Profile') }}
                                     </x-jet-dropdown-link>
 
@@ -136,7 +155,7 @@
 
                     <div class="mt-3 space-y-1">
                         <!-- Account Management -->
-                        <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                        <x-jet-responsive-nav-link href="{{ route('profile.admin-show') }}" :active="request()->routeIs('profile.admin-show')">
                             {{ __('Profile') }}
                         </x-jet-responsive-nav-link>
 

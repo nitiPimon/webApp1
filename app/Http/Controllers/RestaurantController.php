@@ -50,6 +50,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::find($id);
         $review = Review::where('restaurantID', $id)->get();
+        //dd($review);
         return view('restaurant',compact(['restaurant','review']));
     }
 

@@ -60,8 +60,8 @@
 		</div> 
         
         <div class="col-md-12">
-	        <button type="sumbit" class="btn btn-success my-3">Update</button>
-			<a href="{{ route('adminDashboard')}}" class="btn btn-primary my-3">Cancel</a>
+	        <button type="sumbit" class="btn btn-primary my-3">Update</button>
+			<a href="{{ route('adminDashboard')}}" class="btn btn-danger my-3">Cancel</a>
         </div>
 
 	</div>

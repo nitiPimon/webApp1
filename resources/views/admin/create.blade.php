@@ -38,8 +38,8 @@
 
 		<div class="col-md-12">
 			<div class="form-group">
-				<strong>Body:</strong>
-				<input type="text" name="body" class="form-control my-2" placeholder="Enter body">
+				<strong>Description:</strong>
+				<input type="text" name="body" class="form-control my-2" placeholder="Enter Description">
 			</div>
 		</div>
 
@@ -59,8 +59,8 @@
 		</div> 
         
         <div class="col-md-12">
-	        <button type="sumbit" class="btn btn-success my-3">Submit</button>
-			<a href="{{ route('adminDashboard')}}" class="btn btn-primary my-3">Cancel</a>
+	        <button type="sumbit" class="btn btn-primary my-3">Submit</button>
+			<a href="{{ route('adminDashboard')}}" class="btn btn-danger my-3 ">Cancel</a>
         </div>
 		
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminManageUser;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,12 @@ use App\Http\Controllers\AdminDashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::redirect('/', 'user/search');
@@ -33,6 +40,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     //Search a restaurant.
     Route::get('user/searchRes',[SearchController::class,'search'])->name('searchRestaurant');  
+    
 
 });
 /*
@@ -62,17 +70,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'authadmin']], functi
     // Store
     Route::resource('store', AdminDashboardController::class);
 
+
+    Route::get('admin/manage', [AdminManageUser::class,'index'])->name('adminManage');
+
+    Route::get('deleteManage/{id}',[AdminManageUser::class, 'destroy'])->name('deleteUser');
+
     // store update
     //Route::resource('adminUpdate', AdminDashboardController::class);
-
-   
-
-
-    
-
-    
-
-   
-
 
 });

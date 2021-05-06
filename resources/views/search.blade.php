@@ -1,13 +1,35 @@
 <x-app-layout>
-  <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Search') }}
-    </h2>
-      <!DOCTYPE html>
-      <html lang="en">
-        <body>
-            <Style>
-              h2{
+<x-slot name="header">
+  <div>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Search') }}
+        </h2>
+        <div>
+    </x-slot>
+    <!DOCTYPE html>
+    <head>
+
+    <link
+      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!--Replace with your tailwind.css once created-->
+    <link
+      href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css"
+      rel="stylesheet"
+    />
+    <!--Tailwind Custom Forms - use to standardise form fields - https://github.com/tailwindcss/custom-forms-->
+
+    <Style>
+
+@import url("https://rsms.me/inter/inter.css");
+      html {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+      }
+              h1{
                 text-align:center;
                 padding:20px
               }
@@ -43,22 +65,30 @@
               #myUL li a:hover:not(.header) {
                 background-color: #eee;
               }
-            }
+
+
+            
             </Style>
+    </head>
+    <section class="gradient">
+        <body class="leading-relaxed tracking-wide flex flex-col">
+        
 
             <div>
-                <h2 style="font-family:verdana;" >Join for review</h2>
+                <h1 style="font-family:verdana;" >Join for reviews</h2>
                 <h5 style="font-family:verdana;" >เว็บสำหรับการรีวิวอาหารเเละร้าน เพื่อทำให้พึงพอใจในการเลือกร้านค้า
                   เเละทำให้มีความสุชในการรับประทานอาหาร</h5>
             </div>
             <form action="searchRes" type="get" >
               <div class="box" >
+              
                 <input  name="query" type="text" id="myInput" placeholder="Search.." title="Type in a name">
                 <button class="button button1" type="submit">Seacrh</button>
               </div>
             </form>
 
         </body>
-      </html>
-  </x-slot>
+
+        </section>
 </x-app-layout>
+
