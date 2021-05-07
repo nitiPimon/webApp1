@@ -51,7 +51,7 @@
                             </x-jet-nav-link>
 
 
-                            <x-jet-nav-link href="{{ route('adminDashboard') }}" :active="request()->routeIs('adminDashboard')">
+                            <x-jet-nav-link href="{{ route('adminReview') }}" :active="request()->routeIs('adminReview')">
                                 {{ __('Review') }}
                             </x-jet-nav-link>
 
@@ -145,8 +145,13 @@
                             <div class="flex-shrink-0 mr-3">
                                 <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                             </div>
-                            
+
                             <x-jet-nav-link href="{{ route('adminDashboard') }}" :active="request()->routeIs('adminDashboard')">
+                                {{ __('Review') }}
+                            </x-jet-nav-link>
+
+                            
+                            <x-jet-nav-link href="{{ route('adminReview') }}" :active="request()->routeIs('adminReview')">
                                 {{ __('Review') }}
                             </x-jet-nav-link>
 

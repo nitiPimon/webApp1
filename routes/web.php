@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminManageUser;
+use App\Http\Controllers\AdminReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,6 +76,11 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'authadmin']], functi
     Route::get('admin/manage', [AdminManageUser::class,'index'])->name('adminManage');
 
     Route::get('deleteManage/{id}',[AdminManageUser::class, 'destroy'])->name('deleteUser');
+
+
+    Route::get('admin/review', [AdminReviewController::class,'index'])->name('adminReview');
+
+    Route::get('deleteComment/{id}',[AdminReviewController::class, 'destroy'])->name('deleteComment');
 
     // store update
     //Route::resource('adminUpdate', AdminDashboardController::class);
