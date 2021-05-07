@@ -145,6 +145,15 @@
                             <div class="flex-shrink-0 mr-3">
                                 <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                             </div>
+                            
+                            <x-jet-nav-link href="{{ route('adminDashboard') }}" :active="request()->routeIs('adminDashboard')">
+                                {{ __('Review') }}
+                            </x-jet-nav-link>
+
+
+                            <x-jet-nav-link href="{{ route('adminManage') }}" :active="request()->routeIs('adminManage')">
+                                {{ __('Manage User') }}
+                            </x-jet-nav-link>
                         @endif
 
                         <div>

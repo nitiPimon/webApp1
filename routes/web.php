@@ -23,7 +23,9 @@ Route::get('/welcome', function () {
 
 
 
+
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+    
     Route::redirect('/', 'user/search');
 
     // Search.
@@ -43,13 +45,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     
 
 });
+
 /*
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->get('/admin/dashboard', function () {
     return view('admin/dashboard');
 })->name('adminDashboard');
-
 */
-
 //Route::resource('admin/dashboard', AdminDashboardController::class);
 
 Route::group(['middleware' => ['auth:sanctum', 'verified', 'authadmin']], function () {
