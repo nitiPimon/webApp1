@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Review;
+use Auth;
 
 class RestaurantController extends Controller
 {
@@ -15,8 +16,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        
-        return view('restaurant');
+        $data = Review::latest();
+        return view('restaurant', compact('data'));
     }
 
     /**
@@ -37,7 +38,18 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'reviews' => 'required',            
+            ]);
+
+        // $restaurant = Restaurant::find($request->restaurantID);
+        Review::create([
+            'reviews' => $request->reviews,
+            'userID' => Auth::id(),
+            'restaurantID' => $request->restaurantID,
+        ]);
+        // Review::create($request->all());
+        return redirect()->back();
     }
 
     /**
