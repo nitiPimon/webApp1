@@ -1,11 +1,17 @@
 <x-admin-layout>
   <x-slot name="header">
        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          {{ __('Manage User') }}
+          {{ __('All Comment') }}
       </h2>
   </x-slot>
   @section('content')
 	<div class="row mt-5">
+    <form class="mb-3" action="??" type="get" >
+              <div class="box" >
+                <input  name="query" type="text" id="myInput" placeholder="Search.." title="Type in a name">
+                <button type="submit" class="btn btn-dark">Search</button>
+              </div>
+            </form>
 		<div class="col-md-12">
 		</div>
 	</div>

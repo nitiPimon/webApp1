@@ -1,10 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
+    <div>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
+      <div>
+
     </x-slot>
-    <!DOCTYPE html>
+    
       <head>
         <style>
         
@@ -36,6 +39,7 @@
         </style>
       </head>
       <body>
+      
         <div class="container flex flex-wrap pt-4 pb-10 m-auto mt-6 md:mt-15 lg:px-12 xl:px-16">
           <div class="w-full px-0 lg:px-4">
             <div class="flex flex-wrap items-center justify-center py-4 pt-0">                 

@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->foreign('userID')->references('id')->on('users');
             $table->bigInteger('restaurantID')->unsigned();
             $table->foreign('restaurantID')->references('id')->on('restaurants');
-
+            
             $table->string('reviews');
             $table->timestamps();
         });

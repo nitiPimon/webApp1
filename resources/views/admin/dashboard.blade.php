@@ -21,6 +21,7 @@
 		<tr>
 			<th class="py-3 px-6 text-center">No.</th>
 			<th class="py-3 px-6 text-center">Name</th>
+      <th class="py-3 px-6 text-center">restaurantID</th>
 			<th class="py-3 px-6 text-center">Description</th>
 			<th class="py-3 px-6 text-center">Location</th>
       		<th class="py-3 px-6 text-center">Rating</th>
@@ -32,6 +33,7 @@
 	<tr>
 		<td class="py-3 px-6 text-center">{{ ++$i }}</td>
 		<td class="py-3 px-6 text-center">{{ $value->name }}</td>	
+    <td class="py-3 px-6 text-center">{{ $value->id }}</td>	
 		<td class="py-3 px-6 text-center">{{ $value->body }}</td>
 		<td class="py-3 px-6 text-center">{{ $value->location }}</td>
     <td class="py-3 px-6 text-center">{{ $value->rating }}</td>

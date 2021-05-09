@@ -4,6 +4,7 @@
             {{ __('Restaurant') }}
         </h2>
     </x-slot>
+    
     <section class="text-gray-700 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
         <div class="lg:w-4/5 mx-auto flex flex-wrap">
@@ -11,6 +12,8 @@
         <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 class="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
             <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{$restaurant->name}}</h1>
+            <h2 class="text-sm title-font text-gray-500 tracking-widest">{{$restaurant->body}}</h2>
+            <h2 class="text-sm title-font text-gray-500 tracking-widest">{{$restaurant->location}}</h2 >
             <div class="flex mb-4">
             <span class="flex items-center">
             @for ($i = 0; $i < $restaurant->rating; $i++)
@@ -23,21 +26,32 @@
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                 </svg>
             @endfor
+            
             </span>
+            <div class="flex mt-5 items-center pb-5 border-b-2 border-gray-200 mb-5">
+            </div>
             </div>
             @foreach($review as $value)
+            <div class="rounded border shadow p-3 my-2">
+            <div class="flex justify-between my-2">
+            <div>
                 <p class="leading-relaxed">{{$value->user->name}} : {{$value->reviews}} </p>
+                <p class="leading-relaxed">{{$value->created_at}} </p>
+            </div>
+            </div>
+            </div>
             @endforeach
             <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
             </div>
-            
+        
             <h4>Your review</h4><br>
-            <div class="flex">
+            
             <form action="{{ route('storeComment.store') }}" method="post">
             @csrf
+            <div class="flex">
                 <textarea name='reviews' id='reviews' class="resize border rounded-md" require></textarea>
                 <input name='restaurantID' id='restaurantID' type='hidden' value='{{$restaurant->id}}' >
-                <button class="flex text-white bg-red-400 border-0 py-3 px-5 focus:outline-none hover:bg-red-600 rounded" id="butsave">Comment</button>
+                <button class=" text-white bg-red-400 border-0 py-3 px-5  focus:outline-none hover:bg-red-600 rounded" id="butsave">Comment</button>
             </form>
             </div>
             <div class="rate">

@@ -18,7 +18,7 @@ class AdminReviewController extends Controller
 
     public function destroy($id)
     {     //
-        User::find($id)->delete();
+        Review::find($id)->delete();
         return redirect()->route('adminReview')->with('success', 'Resturant Deleted Successfully.');
         
     }

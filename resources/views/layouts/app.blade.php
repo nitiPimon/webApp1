@@ -22,10 +22,10 @@
                         @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
                 fieldset, label { margin: 0; padding: 0; }
-                body{ margin: 20px; }
+                
                 h1 { font-size: 1.5em; margin: 10px; }
 
-                /****** Style Star Rating Widget *****/
+                /****** Style Star Rating Widget  *****/
 
                 .rating { 
                 border: none;
@@ -53,17 +53,16 @@
 
                 /***** CSS Magic to Highlight Stars on Hover *****/
 
-                            .rating > input:checked ~ label, /* show gold star when clicked */
-                            .rating:not(:checked) > label:hover, /* hover current star */
-                            .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+                .rating > input:checked ~ label, /* show gold star when clicked */
+                .rating:not(:checked) > label:hover, /* hover current star */
+                .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
 
-                            .rating > input:checked + label:hover, /* hover current star when changing rating */
-                            .rating > input:checked ~ label:hover,
-                            .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-                            .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+                .rating > input:checked + label:hover, /* hover current star when changing rating */
+                .rating > input:checked ~ label:hover,
+                .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+                .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
 
-                            .gradient {
-                                    background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
+                
         </style>
         
     </head>

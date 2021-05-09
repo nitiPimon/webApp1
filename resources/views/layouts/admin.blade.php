@@ -18,6 +18,8 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <style>
+
+        
         .modal {
          transition: opacity 0.25s ease;
         }
