@@ -26,3 +26,4 @@ class Review extends Model
         return $this->belongsTo(Restaurant::Class, 'restaurantID');
     }
 }
+    

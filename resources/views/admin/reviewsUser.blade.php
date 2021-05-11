@@ -1,29 +1,31 @@
 <x-admin-layout>
   <x-slot name="header">
+  <div class="flex">
        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
           {{ __('All Comment') }}
       </h2>
+	  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
+  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+</svg>
+	</div>  
   </x-slot>
   @section('content')
 	<div class="row mt-5">
-    <form class="mb-3" action="??" type="get" >
-              <div class="box" >
-                <input  name="query" type="text" id="myInput" placeholder="Search.." title="Type in a name">
-                <button type="submit" class="btn btn-dark">Search</button>
-              </div>
-            </form>
 		<div class="col-md-12">
+			<label for="findMe">Field for search</label>
+			<input id="findMe" type="search" class="form-control" placeholder="Search comment here.." onkeyup="findMe()">
 		</div>
 	</div>
 
 
-	<table class="table">
+	<table class="table" id="table">
 	<thead class="table-dark">
 		<tr>
 			<th class="py-3 px-6 text-center">No.</th>
 			<th class="py-3 px-6 text-center">userID</th>
 			<th class="py-3 px-6 text-center">restaurantID</th>
 			<th class="py-3 px-6 text-center">Comment</th>
+			<th class="py-3 px-6 text-center">Crate At</th>
 			<th width="280px" class="py-3 px-6 text-center">Action</th>
 		</tr>
 		</thead>
@@ -34,6 +36,8 @@
 		<td class="py-3 px-6 text-center">{{ $value->userID }}</td>	
 		<td class="py-3 px-6 text-center">{{ $value->restaurantID }}</td>
 		<td class="py-3 px-6 text-center">{{ $value->reviews }}</td>
+		<td class="py-3 px-6 text-center">{{ $value->created_at }}</td>
+		
 
     
     
@@ -56,7 +60,9 @@
   </table>
  
   
+
   {!! $data->links() !!}
   @endsection
+  
 
 </x-admin-layout>

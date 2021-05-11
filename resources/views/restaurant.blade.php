@@ -11,11 +11,21 @@
         <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="{{$restaurant->image}}">
         <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 class="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
-            <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{$restaurant->name}}</h1>
-            <h2 class="text-sm title-font text-gray-500 tracking-widest">{{$restaurant->body}}</h2>
+            <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{$restaurant->name}}</h1><br>
+            <div class="flex">
+            <h1>Description</h1>
+            </div>
+            <h2 class="text-sm title-font text-gray-500 tracking-widest">{{$restaurant->body}}</h2><br>
+            <div class="flex">
+                <h1>Location</h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </svg>
+            </div>
             <h2 class="text-sm title-font text-gray-500 tracking-widest">{{$restaurant->location}}</h2 >
             <div class="flex mb-4">
             <span class="flex items-center">
+            <h1>Rating</h1>
             @for ($i = 0; $i < $restaurant->rating; $i++)
                 <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>

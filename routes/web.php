@@ -74,15 +74,18 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'authadmin']], functi
     // Store
     Route::resource('store', AdminDashboardController::class);
 
-
     Route::get('admin/manage', [AdminManageUser::class,'index'])->name('adminManage');
 
     Route::get('deleteManage/{id}',[AdminManageUser::class, 'destroy'])->name('deleteUser');
 
-
     Route::get('admin/review', [AdminReviewController::class,'index'])->name('adminReview');
 
     Route::get('deleteComment/{id}',[AdminReviewController::class, 'destroy'])->name('deleteComment');
+
+    
+
+    
+
 
     // store update
     //Route::resource('adminUpdate', AdminDashboardController::class);

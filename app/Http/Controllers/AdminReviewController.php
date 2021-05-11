@@ -16,6 +16,17 @@ class AdminReviewController extends Controller
 
     }
 
+    // public function findMe()
+    // {
+    //     $value=$request->input('value');
+    //     $i = 0;
+    //     $Reviews = Review::where('restaurantID', '=', $value)
+    //                     ->orWhere('userID', '=',$value)
+    //                     ->orWhere('reviews', '=', $value)->paginate(5);
+    //     return view('table',compact('Reviews'));
+    // }
+
+
     public function destroy($id)
     {     //
         Review::find($id)->delete();

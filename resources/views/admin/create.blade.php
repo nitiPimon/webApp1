@@ -50,7 +50,16 @@
 				<input type="text" name="location" class="form-control my-2" placeholder="Enter Location">
 			</div>
 		</div>
-      
+
+		<div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Image:</strong>
+                    <input type="file" id="image" name="image" class="form-control">
+             
+            </div>
+        </div>
+
+
 		<div class="col-md-12">
 			<div class="form-group">
 				<strong>Rating:</strong>

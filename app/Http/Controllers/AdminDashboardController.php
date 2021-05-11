@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
-
+use App\Models\Review;
 
 class AdminDashboardController extends Controller
 {
@@ -34,9 +34,39 @@ class AdminDashboardController extends Controller
             'location' => 'required',
             'userID' => 'required',
             'rating' => 'required',
-            //'image' => 'required'
+            'image' => 'required'
+            
             ]);
 
+        
+            if($request->hasFile('image'))
+            {
+                $file = $request->upload;
+                $extension = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extension;
+                $file->move('/image', $filename);
+                $Restaurant->image = $filename;
+            
+            }
+           
+
+            // if ($request->hasFile('file')) {
+
+            //     $request->validate([
+            //         'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            //     ]);
+    
+            //     // Save the file locally in the storage/public/ folder under a new folder named /product
+            //     $request->file->store('image', 'public');
+    
+            //     // Store the record, using the new file hashname which will be it's new filename identity.
+            //     $data = new Restaurant([
+            //         "name" => $request->get('name'),
+            //         "image" => $request->file->hashName()
+            //     ]);
+            //     $data->save(); // Finally, save the record.
+            // }
+         
             Restaurant::create($request->all());
             return redirect()->route('adminDashboard')
 	            ->with('success', 'Restaurant created successfully.');
@@ -72,7 +102,12 @@ class AdminDashboardController extends Controller
 
 
     public function destroy($id)
-    {     //
+    {   
+
+        $dataReviews = Review::where('restaurantID', $id); 
+        $dataReviews->delete();
+ 
+
         Restaurant::find($id)->delete();
         return redirect()->route('adminDashboard')->with('success', 'Resturant Deleted Successfully.');
         

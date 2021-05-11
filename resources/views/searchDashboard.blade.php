@@ -45,7 +45,7 @@
                       <img class="object-cover w-full h-full" src= "{{$restaurant->image}}" alt="image">
 
                     </div>
-                    <div class="flex flex-col items-center justify-center w-full h-full py-6 rounded-b-lg bg-blue-500">
+                    <div class="flex flex-col items-center justify-center w-full h-full py-6 rounded-b-lg bg-black">
                       <p class="text-xl text-white">
                         {{$restaurant->name}}
                       </p>

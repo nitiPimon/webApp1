@@ -49,7 +49,7 @@ class RestaurantController extends Controller
             'restaurantID' => $request->restaurantID,
         ]);
         // Review::create($request->all());
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Comment Successfully.');
     }
 
     /**
