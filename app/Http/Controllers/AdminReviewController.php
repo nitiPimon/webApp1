@@ -33,4 +33,6 @@ class AdminReviewController extends Controller
         return redirect()->route('adminReview')->with('success', 'Resturant Deleted Successfully.');
         
     }
+
+    
 }

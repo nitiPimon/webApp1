@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Review;
+// use App\Images;
+// use Image;
 
 class AdminDashboardController extends Controller
 {
@@ -38,16 +40,10 @@ class AdminDashboardController extends Controller
             
             ]);
 
-        
-            if($request->hasFile('image'))
-            {
-                $file = $request->upload;
-                $extension = $file->getClientOriginalExtension();
-                $filename = time().'.'.$extension;
-                $file->move('/image', $filename);
-                $Restaurant->image = $filename;
+            // $image_file = $request->image;
+            // $image2 = Image::make($image_file);
+            // $file->move('/image', $image2);
             
-            }
            
 
             // if ($request->hasFile('file')) {

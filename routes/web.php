@@ -82,7 +82,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'authadmin']], functi
 
     Route::get('deleteComment/{id}',[AdminReviewController::class, 'destroy'])->name('deleteComment');
 
-    
+
 
     
 

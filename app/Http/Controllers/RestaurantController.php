@@ -97,6 +97,12 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // $dataReviews = User::where('id', $id); 
+        // $dataRestaurant = Restaurant::where('')
+        // $dataReviews->delete();
+ 
+
+        // Restaurant::find($id)->delete();
+        // return redirect()->route('adminDashboard')->with('success', 'Resturant Deleted Successfully.');
     }
 }

@@ -276,7 +276,7 @@
 
         <div class="flex flex-wrap flex-col-reverse sm:flex-row">
           <div class="w-full sm:w-1/2 p-8 mt-6">
-          <img class="object-cover w-full h-full" src= "/image/4.jpg" alt="image">
+          <img class="object-cover w-full h-full" src= "/image/7.png" alt="image">
           </div>
           <div class="w-full sm:w-1/2 p-6 mt-6">
             <div class="align-middle">

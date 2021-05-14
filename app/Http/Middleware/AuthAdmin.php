@@ -17,17 +17,11 @@ class AuthAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        if(auth()->user()->roleID == 2){
-        //if(session('utype') === 'ADM'){
+        if(auth()->user()->roleID == 2)
+        {
            return $next($request);
-        //}
         }
-
         return redirect('user/search')->with('error', "you don't have admin");
-         //else{
-           //  session()->flush();
-             //return redirect()->route('login');
-         //}
-       // return $next($request);
+         
     }
 }

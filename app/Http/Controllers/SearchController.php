@@ -14,7 +14,12 @@ class SearchController extends Controller
      */
     public function index()
     {
-        return view('search');
+        $data = Restaurant::orderBy('id', 'desc')->take(3)->get();
+        //dd($data);
+       return view('search', compact('data'));
+        
+        
+     
     }
     /**
      * Search name of restaurant from database.
