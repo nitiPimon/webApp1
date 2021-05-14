@@ -13,6 +13,7 @@ first step
  - open project in editor
  - run composer install 
  - run php artisan migrate 
+ - create role in database 1 = USR 2 = ADM 
  - run php artisan serve 
 
 ## About Laravel
