@@ -17,7 +17,8 @@ class Restaurant extends Model
     'image',
     'userID',
     'body',
-    'location'
+    'location',
+    'timeOC'
     ];
 
     public function user(){
@@ -25,6 +26,6 @@ class Restaurant extends Model
     }
 
     public function reviews(){
-        return $this->hasMany(Review::Class);
+        return $this->hasMany(Review::Class, 'restaurantID');
     }
 }

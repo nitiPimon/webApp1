@@ -39,7 +39,8 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'reviews' => 'required',            
+            'reviews' => 'required',
+            'rating' => 'required'            
             ]);
 
         // $restaurant = Restaurant::find($request->restaurantID);
@@ -47,6 +48,7 @@ class RestaurantController extends Controller
             'reviews' => $request->reviews,
             'userID' => Auth::id(),
             'restaurantID' => $request->restaurantID,
+            'rating' => $request->rating,
         ]);
         // Review::create($request->all());
         return redirect()->back()->with('success', 'Comment Successfully.');
@@ -61,9 +63,16 @@ class RestaurantController extends Controller
     public function show($id)
     {
         $restaurant = Restaurant::find($id);
-        $review = Review::where('restaurantID', $id)->get();
+        $review = Review::where('restaurantID', $id)->paginate(4);
+        
+
+
+       
         //dd($review);
         return view('restaurant',compact(['restaurant','review']));
+
+        
+
     }
 
     /**

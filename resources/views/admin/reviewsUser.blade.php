@@ -15,8 +15,12 @@
 		
 		</div>
 	</div>
-
-
+	
+	@if ($message = Session::get('success'))
+		<div class="alert alert-success">
+			{{ $message }}
+		</div>
+	@endif
 	<table class="table" id="table">
 	<thead class="table-dark">
 		<tr>

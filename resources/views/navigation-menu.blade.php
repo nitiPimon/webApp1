@@ -16,7 +16,7 @@
                         {{ __('Search') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('ALL Restaurants') }}
                     </x-jet-nav-link>
                 </div>
             </div>

@@ -51,6 +51,13 @@
 				<input type="text" name="location" class="form-control my-2" value="{{$data->location}}"  placeholder="Enter Location">
 			</div>
 		</div>
+
+		<div class="col-md-12">
+			<div class="form-group">
+				<strong>Time open-close:</strong>
+				<input type="text" name="timeOC" class="form-control my-2" placeholder="Enter Location">
+			</div>
+		</div>
       
 		<div class="col-md-12">
 			<div class="form-group">

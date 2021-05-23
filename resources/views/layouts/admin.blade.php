@@ -56,7 +56,7 @@
 
 
                             <x-jet-nav-link href="{{ route('adminReview') }}" :active="request()->routeIs('adminReview')">
-                                {{ __('Review') }}
+                                {{ __('ALL Review') }}
                             </x-jet-nav-link>
 
 

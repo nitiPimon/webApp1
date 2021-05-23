@@ -13,8 +13,9 @@
         <div>
     </x-slot>
     <!DOCTYPE html>
+	<html>
     <head>
-
+	<title>Search</title>
     <link
       href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
       rel="stylesheet"
@@ -252,7 +253,7 @@ span:hover:before {
 		</button>
 		</form>
 		<main>
-  <span class="text-center"><p>New Restaurant</p></span>
+  <span class="text-center" href="{{ route('dashboard') }}"><p>New Restaurant</p></span>
 </main><br>
 
 		
@@ -261,8 +262,8 @@ span:hover:before {
   			<div class="row">
 			  @foreach($data as $datas)
    				 <div class="flex col">
-							<div class="card text-white bg-dark" style="width: 20rem;">
-							<img class="card-img-top" src="{{$datas->image}}" alt="Card image cap">
+							<div class="card text-white bg-dark" style="width: 20rem;" data-wow-delay="0.3s">
+							<img class="card-img-top" src="{{$datas->image}}" alt="Card image cap" >
 							<div class="card-body">
 				
 								<h5 class="card-title ">{{$datas->name}}</h5><br>
@@ -280,6 +281,7 @@ span:hover:before {
             @endfor
             
             </div>
+			<p1>Description:</p1>
 								<p1 class="card-text">{{$datas->body}}</p1><br>
 			
 
@@ -296,7 +298,9 @@ span:hover:before {
             
 
        
-
+		<script src="js/wow.min.js"></script>
         </section>
+		</html>
+	
 </x-app-layout>
 

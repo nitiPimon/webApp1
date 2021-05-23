@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use App\Models\Review;
 
 class DashboardController extends Controller
 {
@@ -14,6 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        
         $restaurants = Restaurant::all();
         return view('dashboard',compact('restaurants'));
     }
@@ -47,7 +49,8 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+        
+      
     }
 
     /**

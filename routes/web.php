@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     // Dashboard.
     Route::get('user/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
+
     // Restaurant.
     //Route::get('user/restaurant', [RestaurantController::class,'index'])->name('restaurant');
 

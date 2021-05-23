@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Review;
-// use App\Images;
-// use Image;
+use Image;
 
 class AdminDashboardController extends Controller
 {
@@ -34,34 +33,35 @@ class AdminDashboardController extends Controller
             'name' => 'required',
             'body' => 'required',
             'location' => 'required',
+            'timeOC' => 'required',
             'userID' => 'required',
+            'image' => 'required',
             'rating' => 'required',
-            'image' => 'required'
             
             ]);
 
-            // $image_file = $request->image;
-            // $image2 = Image::make($image_file);
-            // $file->move('/image', $image2);
             
            
 
-            // if ($request->hasFile('file')) {
 
-            //     $request->validate([
-            //         'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
-            //     ]);
+            if ($request->hasFile('image')) {
+                
+                // Save the file locally in the storage/public/ folder under a new folder named /product
+                $request->file->store('image', 'public');
     
-            //     // Save the file locally in the storage/public/ folder under a new folder named /product
-            //     $request->file->store('image', 'public');
-    
-            //     // Store the record, using the new file hashname which will be it's new filename identity.
-            //     $data = new Restaurant([
-            //         "name" => $request->get('name'),
-            //         "image" => $request->file->hashName()
-            //     ]);
-            //     $data->save(); // Finally, save the record.
-            // }
+                // Store the record, using the new file hashname which will be it's new filename identity.
+                $data = new Restaurant([
+                    "name" => $request->get('name'),
+                    "image" => $request->file->hashName()
+                ]);
+                $data->save(); // Finally, save the record.
+            }
+            else{
+                dd($request);
+            }
+
+            
+           
          
             Restaurant::create($request->all());
             return redirect()->route('adminDashboard')
@@ -83,12 +83,14 @@ class AdminDashboardController extends Controller
             'name' => 'required',
             'body' => 'required',
             'location' => 'required',
+            'timeOC' => 'required',
             'userID' => 'required',
             'rating' => 'required',
         ]);
         $data->name = $request->name;
         $data->body = $request->body;
         $data->location = $request->location;
+        $data->timeOC = $request->timeOC;
         $data->userID = $request->userID;
         $data->rating = $request->rating;
         $data->save();
