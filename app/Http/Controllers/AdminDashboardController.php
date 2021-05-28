@@ -17,7 +17,7 @@ class AdminDashboardController extends Controller
     public function index()
     {
         $data = Restaurant::latest()->paginate(5);
-        return view('Admindashboard', compact('data'))
+        return view('admin.dashboard', compact('data'))
             ->with('i', (request()->input('page', 1) -1) * 5);
 
     }
