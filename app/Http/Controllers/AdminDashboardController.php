@@ -44,21 +44,21 @@ class AdminDashboardController extends Controller
            
 
 
-            if ($request->hasFile('image')) {
+            // if ($request->hasFile('image')) {
                 
-                // Save the file locally in the storage/public/ folder under a new folder named /product
-                $request->file->store('image', 'public');
+            //     // Save the file locally in the storage/public/ folder under a new folder named /product
+            //     $request->file->store('image', 'public');
     
-                // Store the record, using the new file hashname which will be it's new filename identity.
-                $data = new Restaurant([
-                    "name" => $request->get('name'),
-                    "image" => $request->file->hashName()
-                ]);
-                $data->save(); // Finally, save the record.
-            }
-            else{
-                dd($request);
-            }
+            //     // Store the record, using the new file hashname which will be it's new filename identity.
+            //     $data = new Restaurant([
+            //         "name" => $request->get('name'),
+            //         "image" => $request->file->hashName()
+            //     ]);
+            //     $data->save(); // Finally, save the record.
+            // }
+            // else{
+            //     dd($request);
+            // }
 
             
            
