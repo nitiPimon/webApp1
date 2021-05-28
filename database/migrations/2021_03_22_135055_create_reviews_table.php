@@ -22,7 +22,6 @@ class CreateReviewsTable extends Migration
             $table->foreign('restaurantID')->references('id')->on('restaurants');
             $table->bigInteger('rating');
             $table->string('reviews');
-            $table->string('timeOC');
             $table->timestamps();
         });
     }

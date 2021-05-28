@@ -18,6 +18,12 @@ class CreateRolesTable extends Migration
             $table->string('utype');
             $table->timestamps();
         });
+
+        DB::table('roles')
+        ->insert(array(
+            array('id' => '1','utype' => 'USR'),
+            array('id' => '2','utype' => 'ADM')
+        ));
     }
 
     /**

@@ -29,8 +29,10 @@ class SearchController extends Controller
     public function search()
     {
         $search_text = $_GET['query'];
+        
         $searchRestaurant = Restaurant::where('name','LIKE','%'.$search_text.'%')->get();
         
         return view('searchDashboard',compact('searchRestaurant'));
+       
     }
 }

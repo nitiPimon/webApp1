@@ -21,6 +21,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('name');
             $table->string('body');
             $table->string('location');
+            $table->string('timeOC');
             $table->string('image');
             $table->integer('rating');            
             $table->timestamps();
