@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\LoginRateLimiter;
+use App\Providers\RouteServiceProvider;
 
 class AttemptToAuthenticate
 {
@@ -54,8 +55,20 @@ class AttemptToAuthenticate
             $request->only(Fortify::username(), 'password'),
             $request->filled('remember'))
         ) {
+            if(auth()->user()->roleID == '1')
+            {
+                session(['roleID' => '2']);
+                return redirect(RouteServiceProvider::ADMIN_HOME);
+            }
+            else if(auth()->user()->roleID == '1')
+            {
+                return redirect(RouteServiceProvider::HOME);
+            }
+
             return $next($request);
         }
+
+
 
         $this->throwFailedAuthenticationException($request);
     }
