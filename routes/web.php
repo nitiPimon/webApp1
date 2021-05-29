@@ -25,7 +25,7 @@ Route::get('/welcome', function () {
 
 
 
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'verified','authuser']], function () {
     
     Route::redirect('/', 'user/search');
 
