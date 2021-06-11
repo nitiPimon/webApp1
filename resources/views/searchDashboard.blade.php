@@ -51,22 +51,29 @@
         </div>
         <div class="p-4 border-t border-b text-xs text-gray-700">
           <span class="flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16" transform="translate(-5,0)">
   <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
   <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
 </svg>Time: {{$restaurant->timeOC}}</span>        
         </div>
+       
         <div class="p-4 flex items-center text-sm text-gray-600">
-        @for ($i = 0; $i < $restaurant->rating; $i++)
+        @for ($i = 0; $i < round($restaurant->reviews->avg('rating'),2); $i++) 
                 <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                 </svg>
             @endfor
-            @for ($i = $restaurant->rating; $i < 5; $i++)
+        @if(round($restaurant->reviews->avg('rating'),2) == 0)
+        <span class="text-sm font-semibold">No Rating</span>
+        @endif
+            <!-- @for ($i = ($restaurant->reviews->avg('rating')); $i < 5; $i++)
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                 </svg>
-            @endfor
+            @endfor -->
+            
+
+            
         </div>
       </a>
       </div>

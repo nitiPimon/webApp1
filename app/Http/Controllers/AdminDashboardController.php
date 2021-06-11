@@ -14,6 +14,7 @@ class AdminDashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $file;
     public function index()
     {
         $data = Restaurant::latest()->paginate(5);
@@ -29,35 +30,38 @@ class AdminDashboardController extends Controller
 
     public function store(Request $request)
     {
+        
         $request->validate([
             'name' => 'required',
             'body' => 'required',
             'location' => 'required',
             'timeOC' => 'required',
             'userID' => 'required',
-            'image' => 'required',
-            'rating' => 'required',
+            
+            
             
             ]);
 
             
-           
+            if ($request->hasfile('image')) {
+                $image = $request->file('image');
+                
+                foreach($image as $images) {
+                    $name = $images->getClientOriginalName();
+                    $path = $images->storeAs('image', $name, 'public');
+    
+                    Image::create([
+                        'name' => $name,
+                        'path' => '/storage/'.$path
+                      ]);
+                }
+             }
 
+             else
+             {
+                $request->image = '/image/6.jpeg';
+             }
 
-            if ($request->hasFile('file')) {
-                // Save the file locally in the storage/public/ folder under a new folder named /product
-                $request->file->store('image', 'public');
-                // Store the record, using the new file hashname which will be it's new filename identity.
-                $data = new Restaurant([
-                    "name" => $request->get('name'),
-                    "image" => $request->file->hashName()
-                ]);
-                $data->save(); // Finally, save the record.
-            }
-
-            
-           
-         
             Restaurant::create($request->all());
             return redirect()->route('adminDashboard')
 	            ->with('success', 'Restaurant created successfully.');
@@ -80,14 +84,14 @@ class AdminDashboardController extends Controller
             'location' => 'required',
             'timeOC' => 'required',
             'userID' => 'required',
-            'rating' => 'required',
+            
         ]);
         $data->name = $request->name;
         $data->body = $request->body;
         $data->location = $request->location;
         $data->timeOC = $request->timeOC;
         $data->userID = $request->userID;
-        $data->rating = $request->rating;
+        
         $data->save();
         return redirect()->route('adminDashboard')
                         ->with('success','Restaurant updated successfully');

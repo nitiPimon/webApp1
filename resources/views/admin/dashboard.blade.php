@@ -12,7 +12,7 @@
   @section('content')
 	<div class="row mt-5">
 		<div class="col-md-12">
-		<a href="{{ route('adminCreate')}}" class="btn btn-dark my-3">Create New Restaurant</a>
+		
 		</div>
 	</div>
   @if ($message = Session::get('success'))
@@ -29,7 +29,7 @@
       <th class="py-3 px-6 text-center">restaurantID</th>
 			<th class="py-3 px-6 text-center">Description</th>
 			<th class="py-3 px-6 text-center">Location</th>
-      		<th class="py-3 px-6 text-center">Rating</th>
+      <th class="py-3 px-6 text-center">Time</th>
 			<th width="280px" class="py-3 px-6 text-center">Action</th>
 		</tr>
 		</thead>
@@ -41,7 +41,7 @@
     <td class="py-3 px-6 text-center">{{ $value->id }}</td>	
 		<td class="py-3 px-6 text-center">{{ $value->body }}</td>
 		<td class="py-3 px-6 text-center">{{ $value->location }}</td>
-    <td class="py-3 px-6 text-center">{{ $value->rating }}</td>
+    <td class="py-3 px-6 text-center">{{ $value->timeOC}}</td>
     
 	<td class="py-3 px-6 text-center">
 	
@@ -156,16 +156,10 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Image:</strong>
-                    <input type="file" id="image" name="image" class="form-control">
+                    <input name="image" id="image" type="file" class="form-control">
             </div>
         </div>
       
-		<div class="col-md-12">
-			<div class="form-group">
-				<strong>Rating:</strong>
-				<input type="text" name="rating" class="form-control" placeholder="Enter rating">
-			</div>
-		</div> 
         
         <div class="col-md-12">
 	        <button type="sumbit" class="btn btn-primary my-3">Submit</button>

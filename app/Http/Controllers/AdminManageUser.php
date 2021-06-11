@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Review;
 
 
 class AdminManageUser extends Controller
@@ -24,7 +25,10 @@ class AdminManageUser extends Controller
    
 
     public function destroy($id)
-    {     //
+    {     
+        
+        $dataReviews = Review::where('reviews', $id)->delete();
+
         User::find($id)->delete();
         return redirect()->route('adminManage')->with('success', 'Resturant Deleted Successfully.');
         
